@@ -11,7 +11,7 @@ use XF\Entity\Thread;
 use XFRM\Entity\Category;
 use XF\PrintableException;
 use XF\Service\AbstractService;
-use XFRM\Service\ResourceItem\Create;
+use Truonglv\ThreadResource\XFRM\Service\ResourceItem\Create;
 
 class Convert extends AbstractService
 {
@@ -192,5 +192,6 @@ class Convert extends AbstractService
         $bulkSet['tag_line'] = $tagLine;
 
         $creator->getResource()->bulkSet($bulkSet);
+        $creator->setThreadResourceThread($this->thread);
     }
 }

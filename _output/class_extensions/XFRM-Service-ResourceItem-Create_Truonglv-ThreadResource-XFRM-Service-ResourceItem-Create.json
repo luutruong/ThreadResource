@@ -1,0 +1,6 @@
+{
+    "from_class": "XFRM\\Service\\ResourceItem\\Create",
+    "to_class": "Truonglv\\ThreadResource\\XFRM\\Service\\ResourceItem\\Create",
+    "execute_order": 10,
+    "active": true
+}
