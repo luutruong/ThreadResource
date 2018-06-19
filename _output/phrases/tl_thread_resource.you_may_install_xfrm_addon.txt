@@ -1,0 +1,1 @@
+You may install the add-on XenForo Resource Manager to use this feature.

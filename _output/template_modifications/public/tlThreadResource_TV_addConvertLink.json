@@ -1,0 +1,9 @@
+{
+    "template": "thread_view",
+    "description": "Add convert link into thread tools",
+    "execution_order": 10,
+    "enabled": true,
+    "action": "str_replace",
+    "find": "<!--[XF:thread_tools_menu:before_footer]-->",
+    "replace": "<xf:if is=\"$xf.visitor.hasNodePermission($thread.node_id, 'threadResource_convert')\">\n\t<a href=\"{{ link('threads/tr-convert', $thread) }}\" \n\t   data-xf-click=\"overlay\" \n\t   class=\"menu-linkRow\">{{ phrase('tl_thread_resource.convert_to_resource') }}</a>\n</xf:if>\n$0"
+}

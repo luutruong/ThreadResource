@@ -1,0 +1,9 @@
+{
+    "event_id": "inline_mod_actions",
+    "execute_order": 10,
+    "callback_class": "Truonglv\\ThreadResource\\Listener",
+    "callback_method": "onThreadInlineModActions",
+    "active": true,
+    "hint": "thread",
+    "description": "thread"
+}

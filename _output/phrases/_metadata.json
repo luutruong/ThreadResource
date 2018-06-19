@@ -1,0 +1,116 @@
+{
+    "permission.forum_threadResource_convert.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "44e7d8914b2c8064f1efd201e800a488"
+    },
+    "tl_thread_resource.assign_to_user.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "97c27a9e3a5631f495aa9b7c9a54518c"
+    },
+    "tl_thread_resource.choose_an_category.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "06f7a02681132402ec7406b7fb5d2d22"
+    },
+    "tl_thread_resource.convert.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "920f4a0c5c8b9a0747380cf7c7f0b3c5"
+    },
+    "tl_thread_resource.convert_to_resource.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "790b3f160511ffa537a555c54c95f7af"
+    },
+    "tl_thread_resource.inline_moderation_convert_threads_to_resources.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "ded811f0a4e19b786af985d34fc23e4c"
+    },
+    "tl_thread_resource.new_title.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "eca63d9e84f67b9628957065d31471fb"
+    },
+    "tl_thread_resource.resource_category.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "5fa6193fe8fc7be27625f5609523bbeb"
+    },
+    "tl_thread_resource.resource_creator.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "6f8074e5e5c2103297274ef7c433770b"
+    },
+    "tl_thread_resource.resource_tag_line.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "ecd365f8f3f4c73ab84f87b6e3e9ff76"
+    },
+    "tl_thread_resource.resource_title.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "1dc60ee1d9edc80155b92cfd2e44d7cc"
+    },
+    "tl_thread_resource.resource_version.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "fbdf0188a8227920151582b357e6b741"
+    },
+    "tl_thread_resource.threads_to_resources.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "2f4d993a1d353733a9b68665ef35cab8"
+    },
+    "tl_thread_resource.use_current_thread_creator.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "93f8fe96e80034b3e7d536c6bebae25f"
+    },
+    "tl_thread_resource.use_current_thread_title.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "5e324ed84357866c596c2efe03c939de"
+    },
+    "tl_thread_resource.use_current_visitor.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "41898e2d9fbd46d2457185d360e2e6c6"
+    },
+    "tl_thread_resource.you_may_enable_xfrm_addon.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "4ddf8d0fc3f3561cbdeaf3da8939d242"
+    },
+    "tl_thread_resource.you_may_install_xfrm_addon.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "60a502e93360c207de96fad962a2d6b7"
+    },
+    "tl_thread_resource.you_sure_you_want_to_convert_x_threads.txt": {
+        "global_cache": false,
+        "version_id": 1000000,
+        "version_string": "1.0.0",
+        "hash": "74f8ce8296cf759f3f8d4504f24d5ed7"
+    }
+}
