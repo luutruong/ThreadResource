@@ -6,11 +6,15 @@
 
 namespace Truonglv\ThreadResource\Service;
 
+use XF\Util\File;
 use XF\Entity\User;
+use XF\FileWrapper;
 use XF\Entity\Thread;
 use XFRM\Entity\Category;
 use XF\PrintableException;
+use XF\Repository\Attachment;
 use XF\Service\AbstractService;
+use XF\Service\Attachment\Preparer;
 use Truonglv\ThreadResource\XFRM\Service\ResourceItem\Create;
 
 class Convert extends AbstractService
@@ -171,7 +175,7 @@ class Convert extends AbstractService
             throw new PrintableException($error ?: \XF::phrase('xfrm_category_not_allow_new_resources'));
         }
 
-        $creator->setContent($this->title ?: $thread->title, $thread->FirstPost->message);
+        $message = $thread->FirstPost->message;
 
         $tags = array_column($thread->tags, 'tag');
         $creator->setTags(implode(',', $tags));
@@ -193,5 +197,64 @@ class Convert extends AbstractService
 
         $creator->getResource()->bulkSet($bulkSet);
         $creator->setThreadResourceThread($this->thread);
+
+        // import post attachments.
+        if ($thread->FirstPost->attach_count > 0) {
+            $attachments = $thread->FirstPost->Attachments;
+            $forceHash = md5(uniqid('threadResource', true));
+            /** @var Attachment $attachRepo */
+            $attachRepo = $this->repository('XF:Attachment');
+            /** @var Preparer $inserter */
+            $inserter = $this->service('XF:Attachment\Preparer');
+            $copiedAttachments = [];
+
+            foreach ($attachments as $attachment) {
+                if (!$attachment->has_thumbnail) {
+                    // do not convert attachment if it's not thumbnail.
+                    continue;
+                }
+
+                $handler = $attachRepo->getAttachmentHandler('resource_update');
+                $tempFile = File::copyAbstractedPathToTempFile($attachment->Data->getAbstractedDataPath());
+                if (!$tempFile) {
+                    if (\XF::$debugMode) {
+                        \XF::logError('Cannot create temp file from source (' . $attachment->Data->getAbstractedDataPath() . ')');
+                    }
+
+                    continue;
+                }
+
+                $file = new FileWrapper($tempFile, $attachment->filename);
+                $newAttachment = $inserter->insertAttachment($handler, $file, $user, $forceHash);
+                if ($newAttachment) {
+                    $copiedAttachments[$attachment->attachment_id] = $newAttachment;
+                }
+            }
+
+            if ($copiedAttachments) {
+                $creator->setDescriptionAttachmentHash($forceHash);
+
+                preg_match_all('/\[ATTACH(=full)?\](\d+)\[\/ATTACH\]/i', $message, $matches);
+                $this->updateMessage($message, $copiedAttachments, $matches);
+            }
+        }
+
+        $creator->setContent($this->title ?: $thread->title, $message);
+    }
+
+    protected function updateMessage(&$message, array $mapAttachments, array $matches)
+    {
+        if (empty($matches[2])) {
+            return;
+        }
+
+        foreach ($matches[2] as $index => $attachmentId) {
+            if (!isset($mapAttachments[$attachmentId])) {
+                continue;
+            }
+
+            $newTag = sprintf('[ATTACH%s]%d[/ATTACH]', $matches[1][$index], $mapAttachments[$attachmentId]->attachment_id);
+            $message = str_replace($matches[0][$index], $newTag, $message);
+        }
     }
 }

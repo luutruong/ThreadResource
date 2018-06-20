@@ -39,6 +39,11 @@ class Create extends XFCP_Create
     protected function setupResourceThreadCreation(\XF\Entity\Forum $forum)
     {
         if ($this->threadResource_thread && $this->category->thread_node_id && $this->category->ThreadForum) {
+            $thread = $this->threadResource_thread;
+
+            $thread->discussion_type = 'resource';
+            $thread->save();
+
             return null;
         }
 
